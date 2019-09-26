@@ -1,8 +1,16 @@
 class PigLatinizer
   
-  def piglatinize_word(word)
+  def piglatize_word(words)
+    if words.include?(" ")
+      words_array = words.split(" ")
+    else
+      words_array = [words]
+    end
+    words = words_array.map do |word|
+      piglatize_word(word)
+    end
     letters = word.split("")
-    vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
+    vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", ]
     consonants = []
     
     if vowels.include?(letters[0])
