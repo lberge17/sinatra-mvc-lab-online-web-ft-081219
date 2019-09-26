@@ -6,22 +6,28 @@ class PigLatinizer
     else
       words_array = [words]
     end
-    words = words_array.map do |word|
-      piglatize_word(word)
-    end
-    letters = word.split("")
-    vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", ]
-    consonants = []
     
-    if vowels.include?(letters[0])
-      new_word = word + "way"
-    else
-      until vowels.include?(letters[0]) do
-        consonants << letters.shift()
+    new_words = words_array.map do |word|
+
+      letters = word.split("")
+      vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", ]
+      consonants = []
+      
+      if vowels.include?(letters[0])
+        new_word = word + "way"
+      else
+        until vowels.include?(letters[0]) do
+          consonants << letters.shift()
+        end
+        new_word = (letters.concat(consonants)).join("") + "ay"
       end
-      new_word = (letters.concat(consonants)).join("") + "ay"
+      new_word
     end
-    new_word
+    if new_words.length > 1
+      new_words.join(" ")
+    else
+      new_words[0]
+    end
   end
   
 end
