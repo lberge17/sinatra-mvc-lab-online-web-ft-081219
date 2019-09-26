@@ -1,6 +1,6 @@
 class PigLatinizer
   
-  def piglatize_word(word)
+  def piglatinize_word(word)
     letters = word.split("")
     vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
     consonants = []
