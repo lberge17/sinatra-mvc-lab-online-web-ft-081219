@@ -1,12 +1,4 @@
 class PigLatinizer
-  attr_reader :words
-  
-  def initialize#(words)
-    #words_array = words.split(" ")
-    #@words = words_array.map do |word|
-    #  piglatize_word(word)
-    #end
-  end
   
   def piglatize_word(word)
     letters = word.split("")
