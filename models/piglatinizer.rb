@@ -1,6 +1,6 @@
 class PigLatinizer
   
-  def piglatize_word(words)
+  def piglatinize(words)
     if words.include?(" ")
       words_array = words.split(" ")
     else
